@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>Zadanie 9</title>
+		<link rel="stylesheet" href="style_9.css">
+
+        <!-- <script src="https://kit.fontawesome.com/yourcode.js"></script> -->
+        
+    </head>
+<body>        
+    <div class="grid-container">
+        <div class="grid-item form"  id="phoneBook" >
+            <div id="f1" class="formularz">
+                <div>
+                    <h5 style="color: black;">Richard</h5>
+                    <p>521 502 122</p>
+                </div>
+                <div class="bin">
+                    <button id="b1"><div id="i1" class="fas fa-trash-alt"></div></button>
+                </div>
+            </div>
+
+            <div id="f2" class="formularz">
+                <div>
+                    <h5 style="color: black;">Margaret</h5>
+                    <p>521 502 122</p>
+                </div>
+                <div class="bin">
+                    <button id="b2"><div id="i2" class="fas fa-trash-alt"></div></button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="grid-item form ">
+            <form class="formularz">            
+                <div>
+                    <label style="display: block;" for="fname">Name</label>
+                    <input type="text" id="fname" name="firstname" placeholder="e.g. Ann...">
+                </div>
+
+                <div>
+                    <label style="display: block;" for="tnumber">Telephone</label>
+                    <input type="text" id="tnumber" name="telephonenumber" placeholder="e.g. (123) 456-7890, +123 4567 890...">
+                </div>
+                <div>
+                    <input id="submitBtn" type="button" value="Submit" onclick="checkForm()">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="script_9.js"></script>
+    
+
+</body>
+</html>

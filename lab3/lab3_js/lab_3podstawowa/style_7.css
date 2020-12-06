@@ -1,0 +1,66 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, minmax(50px, auto));
+    grid-gap: 10px;
+    background-color: white;  
+    
+}
+
+.grid-item {
+    border-color: black;
+    background-color: white;
+    padding: 10px;
+}
+
+.form{
+    grid-column: 2/ span 4;
+    grid-row: 1;
+    margin-top: 50px;
+    height: auto;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 10px 10px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    text-align: center;
+}
+
+.naglowek{
+    font-size: 30px;
+}
+
+
+.formularz{
+    /* margin-top: 30px; */
+    font-family: "Courier New", Courier, monospace;
+    color: grey;
+    text-align: left;
+    padding: 30px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+}
+input[type=radio] {
+    padding: 12px 20px;
+    margin: 4px;
+    display: inline-block;
+}
+input[type=button] {
+    background-color:blue;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px 10px;
+    font-family: "Courier New", Courier, monospace;
+}

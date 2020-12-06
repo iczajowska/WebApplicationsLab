@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="style_1.css"> -->
+    <title>Zadanie 5</title>
+    <style>
+        #blueBox{
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            position: relative;
+            font-size: 20px;
+            color:white;
+        }
+        #redBox{
+            background-color: red;
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            bottom:10%;
+            left:50%;
+            transform: translateX(-75px);
+        }
+        #yellowbox{
+            position: absolute;
+            background-color: yellow;
+            width: 50px;
+            height: 50px;
+            bottom:10%;
+            left:50%;
+            transform: translateX(-25px);
+            color: black;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <h3>Zadanie 5 - komunikaty w logach konsoli</h3>
+    <div id="blueBox" onclick="increase(event,'1')">
+        +1
+        <div id="redBox" onclick="increase(event,'2')">
+            +2
+            <div id="yellowBox"  onclick="increase(event,'5')">
+                +5
+            </div>
+        </div>
+    </div>
+    <div id="counter">
+    </div>
+    <button id="bgnBtn2" onclick="reset()">Reset</button>
+
+
+    <script>
+        var val = 0;
+        var disableYellow = false;
+        var disableRed = false;
+        var disableBlue = false;
+        document.getElementById("counter").innerHTML = "Licznik: "+val;
+
+        function increase(event,number){
+            var addNumber = parseInt(number);
+
+            if(addNumber == 5 && !disableYellow){
+                val += addNumber;
+                console.log("Added: "+addNumber+" color yellow");
+            } else if(addNumber == 2 && !disableRed){
+                val += addNumber;
+                console.log("Added: "+addNumber+" color red");
+            } else if(addNumber == 1 && !disableBlue){
+                val += addNumber;
+                console.log("Added: "+addNumber+" color blue");
+            }
+            document.getElementById("counter").innerHTML = "Licznik: "+val;
+            
+
+            if(val >= 30 ){
+                disableYellow = true;
+                var yellow = document.getElementById("yellowBox");
+                yellow.style.backgroundColor = "gray"; 
+                yellow.style.color = "gray";
+            }
+            if(val >= 50){
+                disableRed = true;
+                var red = document.getElementById("redBox");
+                red.style.backgroundColor = "gray"; 
+                red.style.color = "gray";
+            }
+            if(val >= 60){
+                disableBlue = true;
+                var blue = document.getElementById("blueBox");
+                blue.style.backgroundColor = "gray"; 
+                blue.style.color = "gray";
+            }
+            event.stopPropagation();
+        }
+        function reset(){
+            val = 0;
+
+            var yellow = document.getElementById("yellowBox");
+            yellow.style.backgroundColor = "yellow"; 
+            yellow.style.color = "black";
+
+            var red = document.getElementById("redBox");
+            red.style.backgroundColor = "red"; 
+            red.style.color = "white";
+
+            var blue = document.getElementById("blueBox");
+            blue.style.backgroundColor = "blue"; 
+            blue.style.color = "white";
+
+
+            disableYellow = false;
+            disableRed = false;
+            disableBlue = false;
+
+            document.getElementById("counter").innerHTML = "Licznik: "+val;
+        }
+    </script>
+</body>
+
+</html>

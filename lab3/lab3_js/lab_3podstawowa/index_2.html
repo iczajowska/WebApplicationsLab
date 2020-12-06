@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="style_1.css"> -->
+    <title>Zadanie 2</title>
+    <style>
+        img{
+            border: 5px solid red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <img id="image1" style="width: 300px; height: 200px;" src="https://picsum.photos/id/29/1024/768" >
+        <!-- onclick="changeImage()" -->
+        <br>
+        <button id="bgnBtn" onclick="changeImage()">changeImage</button>
+    </div>
+    <script>
+        function changeImage(){
+            if (document.getElementById("image1").src == "https://picsum.photos/id/29/1024/768") 
+            {
+                document.getElementById("image1").src = "https://picsum.photos/id/271/1024/768";
+                document.getElementById("image1").style.borderColor="blue";
+            }
+            else 
+            {
+                document.getElementById("image1").src = "https://picsum.photos/id/29/1024/768";
+                document.getElementById("image1").style.borderColor="red";
+                
+            }
+        }
+    </script>
+</body>
+
+</html>

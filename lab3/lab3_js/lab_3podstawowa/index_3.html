@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="style_1.css"> -->
+    <title>Zadanie 3</title>
+    <script>
+        var val = 0;
+
+        function increase(){
+            val += 1;
+            document.getElementById("text1").innerHTML = "Licznik: "+val;
+        }
+        function reset(){
+            if(document.getElementById("bgnBtn1").disabled == false){
+                val = 0;
+                document.getElementById("text1").innerHTML = "Licznik: "+val;
+                document.getElementById("bgnBtn1").disabled = true;
+            } else{
+                document.getElementById("bgnBtn1").disabled = false;
+            }
+            
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        <button id="bgnBtn1" onclick="increase()">IncreaseButton</button>
+        <button id="bgnBtn2" onclick="reset()">Reset_Disable</button>        
+        <p id="text1">Licznik: 0</p>
+    </div>
+    <!-- <script src="script_1.js"></script> -->
+</body>
+
+</html>

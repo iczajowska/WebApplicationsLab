@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 4</title>
+
+</head>
+
+<body>
+    <div>
+        <button id="bgnBtn1" onclick="addToList()">addToList</button>
+        <button id="bgnBtn2" onclick="removeFromList()">removeFromList</button>        
+        <!-- <p id="text1"></p> -->
+        <ul id="list">
+        </ul>
+    </div>
+    <script>
+        // var array = ["x","y","z"];  
+        // document.getElementById("text1").innerHTML = array;
+        var counter = 0;
+
+        function addToList(){
+            // var element = prompt("Please provide new element");
+            // array.push(element);
+            // document.getElementById("text1").innerHTML = array;
+            var ul = document.getElementById("list");
+            var li = document.createElement("li");
+            var name = "Element "+counter;
+            li.appendChild(document.createTextNode(name));
+            ul.appendChild(li);
+            counter += 1;
+        }
+        function removeFromList(){
+            // array.shift();
+            var list = document.getElementById("list");
+            list.removeChild(list.childNodes[0]);
+        }
+    </script>
+
+</body>
+
+</html>

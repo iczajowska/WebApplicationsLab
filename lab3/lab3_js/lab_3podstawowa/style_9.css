@@ -1,0 +1,74 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* grid-template-rows: repeat(6, minmax(50px, auto)); */
+    grid-gap: 10px;
+    background-color: white;  
+    
+}
+
+.grid-item {
+    border-color: black;
+    background-color: white;
+    padding: 10px;
+}
+
+
+.form{
+    grid-column: 2/ span 4;
+    /* grid-row: 1; */
+    height: auto;
+    box-shadow: 5px 10px 10px #888888;
+    border-radius: 10px 10px;
+    text-align: center;
+}
+
+.formularz{
+    font-family: "Courier New", Courier, monospace;
+    color: grey;
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+    align-items: stretch;
+}
+i{
+    pointer-events: none;
+}
+.bin{
+    grid-column: 3;
+    text-align: right;
+    margin-top: 25px;
+}
+button{
+    grid-column: 3;
+    background-color:green;
+    color: white;
+    font-size: 35px;
+    width: 70px;
+    height:70px;
+    cursor: pointer;
+    border-radius: 10px 10px;
+}
+
+input[type=text] {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: "Courier New", Courier, monospace;
+}
+
+input[type=button] {
+    background-color:green;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 20px;    
+    cursor: pointer;
+    border-radius: 10px 10px;
+    font-family: "Courier New", Courier, monospace;
+}

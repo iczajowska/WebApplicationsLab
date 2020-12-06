@@ -1,0 +1,190 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 7</title>
+    <link rel="stylesheet" href="style_7.css">
+
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="grid-item form">
+            <form class="formularz">
+                <p class="naglowek">Apply for Retirement </p>
+                <label for="fname">Name</label>
+                <input type="text" id="fname" name="firstname" placeholder="e.g. John...">
+                
+                <label for="sname">Surrname</label>
+                <input type="text" id="sname" name="surrname" placeholder="e.g. Smith...">
+                
+                <label for="genderLab">Gender</label><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Male</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label><br>
+                <!-- <input type="radio" id="other" name="gender" value="other">
+                <label for="other">Other</label> -->
+
+                <br>
+                <label for="tnumber">Telephone</label>
+                <input type="text" id="tnumber" name="telephone" placeholder="e.g. (123) 456-7890, +(123) 456-7890, 123-456-7890, 123.456.7890, 1234567890, +31636363634...">
+
+                <label for="byear">Year of Birth</label>
+                <input type="text" id="byear" name="birthyear" placeholder="e.g. 1912, 1983, 1965...">
+                
+                <label for="ryear">Retirement year</label>
+                <input type="text" id="ryear" name="retirementyear" placeholder="e.g. 1912, 1983, 1965...">
+
+                <input type="button" value="Submit"  onclick="checkForm()">
+            </form>
+        </div>
+    </div>
+
+    <script>      
+        var firstname = document.getElementById("fname");
+        var surrname = document.getElementById("sname");
+        var radiosGender = document.getElementsByName("gender");
+        var phone = document.getElementById("tnumber");
+        var birthYear = document.getElementById("byear");
+        var retirementYear = document.getElementById("ryear");
+
+        var fn, sn, rg, ph, by, ry;
+
+        var errorField = "border: 2px solid red";
+        var correctField = "border: none; border-bottom: 1px solid #ccc;";
+
+        var gender;
+
+        function checkForm(){
+            fn = firstname.value;
+            sn = surrname.value;
+            ph = phone.value;
+            by = birthYear.value;
+            ry = retirementYear.value;
+
+            if(!checkName(fn)){
+                alert("incorect firstname");
+                firstname.value = '';
+                firstname.style = errorField;
+                return;
+            } else{
+                firstname.style = correctField;
+            }
+
+            if(!checkName(sn)){
+                alert("incorect surrname");
+                surrname.value = '';
+                surrname.style = errorField;
+                return;
+            } else{
+                surrname.style = correctField;
+            }
+
+            if(!checkRadios(radiosGender)){
+                alert("Choose gender");
+                return;
+            }
+            
+            if(!checkPhone(ph)){
+                alert("incorect phone number");
+                phone.value = '';
+                phone.style = errorField;
+                return;
+            } else {
+                phone.style = correctField;
+            }
+
+            if(!checkYears(by, ry)){
+
+                // birthYear.style = retirementYear.style = errorField;
+                return;
+            } else{
+                birthYear.style = retirementYear.style = correctField;
+            }
+            
+            alert("Form filled correctly!");
+            firstname.value = surrname.value  = phone.value = birthYear.value =  retirementYear.value = '';
+            for(var i=0;i<radiosGender.length;i++){
+                radiosGender[i].checked = false;
+            }
+                             
+        }
+        function checkPhone(ph){
+            var regPhone = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
+            var flag = regPhone.test(ph.trim());
+            return flag;
+            /*
+            (123) 456-7890; +(123) 456-7890; +(123)-456-7890; +(123) - 456-7890; +(123) - 456-78-90; 
+            123-456-7890; 123.456.7890; 1234567890; +31636363634; 075-63546725*/
+        }
+
+        function checkName(n){
+            var regName = /^[a-zA-Z]*$/g; 
+            var flag = regName.test(n.trim());
+            return flag;
+        }
+
+        function checkRadios(radios){
+            for(var i=0;i<radios.length;i++){
+                if(radiosGender[i].checked){
+                    gender = radiosGender[i].value;
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function checkIfNumber(num){
+            return !isNaN(num);
+        }
+
+        function checkYears(birth, retirement){
+            var numBirth = parseFloat(birth.trim());
+            var numRet = parseFloat(retirement.trim());
+            var yearNow =  new Date().getFullYear();
+
+            if(!checkIfNumber(numBirth) || numBirth > yearNow){
+                alert("incorrect birth year");
+                birthYear.style = errorField;
+                return false;
+            } else{
+                birthYear.style = correctField;
+            }
+
+            if(!checkIfNumber(numRet) || numRet < yearNow){
+                alert("incorrect retirement year");
+                retirementYear.style = errorField;
+                return false;
+            } 
+
+            var age = numRet - numBirth;
+
+            if(gender === "male"){
+                if(age < 65){
+                    alert("wrong age for applying for retirement");
+                    retirementYear.style = errorField;
+                    return false;
+                }else{
+                    retirementYear.style = correctField;
+                }
+            } else if (gender === "female"){
+                if(age < 60){
+                    alert("wrong age for applying for retirement");
+                    retirementYear.style = errorField;
+                    return false;
+                }
+                else{
+                    retirementYear.style = correctField;
+                }
+            }    
+
+
+            return true;
+
+        }
+
+    </script>
+</body>
+
+</html>

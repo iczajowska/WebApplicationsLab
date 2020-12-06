@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="style_1.css"> -->
+    <title>Zadanie 6</title>
+    <style>
+        div{
+            padding: 10px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Zadanie 6 </h1>
+    <p>Launch server:<br> json-server --watch people.json or json-server --watch db.json </p>
+    <div id="box0">
+    </div>
+
+    <div id="box1">
+    </div>
+
+    <div id="box2">
+    </div>
+
+    <div id="box3">
+    </div>
+    
+    <div id="box4">
+    </div>
+    <script>
+        // function getData(){
+        //     fetch("http://localhost:3000/people")
+        //     .then(response => response.json())
+        //     .then(data => {console.log(data); document.getElementById("box").innerHTML = JSON.stringify(data); jsonPeople = JSON.stringify(data); });
+        // }
+        // // var dictionaryJSON =  getData();
+        // // console.log(dictionaryJSON);
+        // getData();s
+
+        /*-------------------------------------------------------------*/
+
+        /*async function fetchData(){
+            const response = await fetch("http://localhost:3000/people");
+            const data = await response.json();
+
+            data.forEach(person => {
+                Object.entries(person).push({"avarage" : 10});
+                Object.entries(person).forEach(([key, value]) => {
+                    console.log(`${key} ${value}`);
+                });
+                console.log('-------------------');             
+            });
+        }
+
+        fetchData();*/
+
+        /*-------------------------------------------------------------*/
+
+        function loadData() {
+            return fetch(`http://localhost:3000/people`)
+                        .then(response => {
+                            if (response.ok) {
+                                return response.json()
+                            } else {
+                                throw new Error(`Http error: ${response.status}`);
+                            }
+                        });
+        }
+
+        loadData()//.then(response => response["people"])
+        .then(response => {
+            console.log(response);
+            document.getElementById("box0").innerHTML = "Fetched json file:<br>" + JSON.stringify(response);
+
+            var resultArr = [];
+
+            var totalAge = response.reduce((a, b) => a + (b["age"] || 0), 0);
+            var avarage = totalAge/response.length;
+            
+            console.log("Avarage age: "+avarage);
+            
+
+            for (var {name:n, age: a} of response){
+                var length = n.length;
+                console.log(n+length+" "+a+"\n");
+                resultArr.push({"name": `${n+length}`, "age" : a, "avarage" : avarage});
+            }
+
+            console.log(resultArr);
+            document.getElementById("box1").innerHTML = "Array with avarage age and name length: <br>"
+                                                        + JSON.stringify(resultArr);
+
+            var newResultArr = resultArr.filter( function(el){
+                for( var c of el.name){
+                    if(c == 'r'){
+                        return true;
+                    }
+                }
+                return false;
+            });
+            document.getElementById("box2").innerHTML ='Objects with "r" in name:<br>' +JSON.stringify(newResultArr);
+
+            resultArr.sort(function (a,b){
+                var x = a["age"];
+                var y = b["age"];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+
+            console.log(resultArr);
+            document.getElementById("box3").innerHTML = "Sorted by age:<br>"+JSON.stringify(resultArr);
+            document.getElementById("box4").innerHTML = "Second object:<br>"+JSON.stringify(resultArr[1]) 
+                                                        +"<br>Third from the end object:<br>"
+                                                        + JSON.stringify(resultArr[resultArr.length -3]);
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

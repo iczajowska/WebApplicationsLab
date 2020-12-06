@@ -1,0 +1,64 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 8</title>
+
+    <style>
+        input[type=text]{
+            width: 300px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h3>Provide minimum 2 numbers seperated by " " or ","</h3>
+    <div>
+        <input type="text" id="numbers" name="numbers" placeholder="e.g. 53, 36, 1232, 1231...">
+    </div>
+    <div>
+        <input id="submitBtn" type="button" value="Submit" onclick="checkForm()">
+    </div>
+    <p id = "par1"></p>
+    <script>
+        var input = document.getElementById('numbers');
+        var paragraph = document.getElementById('par1');
+
+        function checkForm(){
+            var str = input.value; 
+        
+            if(str !== ''){
+                var numArr = str.trim().split(/[ ,]+/).map(function(item) {
+                    return parseInt(item);
+                });
+
+                var flag = !numArr.some(isNaN)
+                console.log(numArr, flag);
+
+                if(!flag){
+                    alert("Please put numbers seperated by \",\" or \" \"");
+                    input.value = '';
+                    return;
+                } else if(numArr.length < 2){
+                    alert("Please put minimum 2 numbers");
+                    input.value = '';
+                    return;
+                } else{
+                    var maxNum = numArr.reduce(function(prev, current) {
+                        return ((+current > +prev) ? current : prev);
+                    });
+
+                    paragraph.innerHTML = 'Maximum: '+ maxNum;
+                    console.log( 'Maximum:',maxNum);
+                    input.value = '';
+                }
+            } else{
+                alert("Please put numbers seperated by \",\" or \" \"");
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

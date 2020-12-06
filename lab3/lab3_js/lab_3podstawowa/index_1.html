@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="style_1.css"> -->
+    <title>Zadanie 1</title>
+
+    <style>
+        p{
+            color: red;
+            font-size: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <button id="bgnBtn" onclick="promptMe()">Nowe Imię</button>        
+        <p id="text1"></p>
+    </div>
+    <!-- <script src="script_1.js"></script> -->
+    <script>
+        function promptMe(){
+            var name = prompt("Please provide name");
+            document.getElementById("text1").innerHTML = "Wpisałeś/aś: "+name;
+        }
+        promptMe();
+    </script>
+</body>
+
+</html>
