@@ -1,0 +1,72 @@
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns:auto auto auto;
+    grid-gap: 10px;
+    background-color: darkgray;
+    padding: 10px;
+}
+    
+.grid-item {
+    border-color: black;
+    background-color: whitesmoke;
+    padding: 10px;
+}
+
+.image{
+    position: relative;
+    text-align: center;
+    height: 300px;
+}
+
+img{
+    height: 90%;
+    width: 90%;
+}
+.button{
+    position: absolute;
+    display: none;
+    text-align: center;
+    width: 10%;
+    height: 10%;
+    opacity:0.8;
+    display: inline-block;
+    border-radius: 8px;
+    color: transparent;
+    top:45%;
+    left:45%;
+    padding-top: 0.5em;
+}
+
+#clip1 img{
+    clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+}
+#clip2 img{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+}
+#clip3 img{
+    clip-path: circle(41.1% at 50% 50%);
+}
+#clip4 img{
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+
+}
+/* #hover1:hover img{
+    filter: blur(4px);
+}
+#hover1:hover .button{
+    display:block;
+    background-color: green;
+    color:white;
+} */
+
+@media (max-width: 600px){
+    .image{
+        grid-column: 1/span 3;
+    }
+
+}
+
+    
+    

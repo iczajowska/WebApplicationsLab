@@ -1,0 +1,173 @@
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns:auto auto auto;
+    grid-gap: 10px;
+    background-color: white;
+    padding: 10px;
+}
+    
+.grid-item {
+    border-color: black;
+    background-color: white;
+    /* padding: 10px; */
+}
+
+.box{
+    grid-column: 2;
+    position: relative;
+    text-align: center;
+    height: 300px;
+    width: 300px;
+}
+
+.circle{
+    position: absolute;
+    top: 125px;
+    left: 125px;
+    opacity: 50%;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    color: transparent;
+}
+
+.c1{
+    background-color: yellow;
+
+    -webkit-animation: orbit1 1s ease-out infinite alternate; /* Chrome, Safari 5 */
+       -moz-animation: orbit1 1s ease-out infinite alternate; /* Firefox 5-15 */
+         -o-animation: orbit1 1s ease-out infinite alternate; /* Opera 12+ */
+            animation: orbit1 1s ease-out infinite alternate; /* Chrome, Firefox 16+, 
+                                                      IE 10+, Safari 5 */
+}
+
+.c2{
+    background-color: violet;
+
+    -webkit-animation: orbit2 1s ease-out infinite alternate; /* Chrome, Safari 5 */
+    -moz-animation: orbit2 1s ease-out infinite alternate; /* Firefox 5-15 */
+      -o-animation: orbit2 1s ease-out infinite alternate; /* Opera 12+ */
+         animation: orbit2 1s ease-out infinite alternate; /* Chrome, Firefox 16+, 
+                                                   IE 10+, Safari 5 */
+}
+
+.c3{
+    background-color: yellow;
+
+    -webkit-animation: orbit3 1s ease-out infinite alternate; /* Chrome, Safari 5 */
+    -moz-animation: orbit3 1s ease-out infinite alternate; /* Firefox 5-15 */
+      -o-animation: orbit3 1s ease-out infinite alternate; /* Opera 12+ */
+         animation: orbit3 1s ease-out infinite alternate; /* Chrome, Firefox 16+, 
+                                                   IE 10+, Safari 5 */
+}
+
+.c4{
+    background-color: violet;
+
+    -webkit-animation: orbit4 1s ease-out infinite alternate; /* Chrome, Safari 5 */
+    -moz-animation: orbit4 1s ease-out infinite alternate; /* Firefox 5-15 */
+      -o-animation: orbit4 1s ease-out infinite alternate; /* Opera 12+ */
+         animation: orbit4 1s ease-out infinite alternate; /* Chrome, Firefox 16+, 
+                                                   IE 10+, Safari 5 */
+}
+
+
+/* ---------------------------orbit1----------------------------------*/
+
+@-webkit-keyframes orbit1 {
+    from { -webkit-transform: rotate(45deg) translateX(50px) }
+    to   { -webkit-transform: rotate(135deg) translateX(50px)  }
+}
+
+@-moz-keyframes orbit1 {
+    from { -moz-transform: rotate(45deg) translateX(50px)  }
+    to   { -moz-transform: rotate(135deg) translateX(50px)  }
+}
+
+@-o-keyframes orbit1 {
+    from { -o-transform: rotate(45deg) translateX(50px)  }
+    to   { -o-transform: rotate(135deg) translateX(50px)  }
+}
+
+@keyframes orbit1 {
+    from { transform: rotate(45deg) translateX(50px)  }
+    to   { transform: rotate(135deg) translateX(50px)  }
+}
+
+/*-----------------------------orbit2-------------------------------*/
+
+@-webkit-keyframes orbit2 {
+    from { -webkit-transform: rotate(135deg) translateX(50px) }
+    to   { -webkit-transform: rotate(225deg) translateX(50px)  }
+}
+
+@-moz-keyframes orbit2 {
+    from { -moz-transform: rotate(135deg) translateX(50px)  }
+    to   { -moz-transform: rotate(225deg) translateX(50px)  }
+}
+
+@-o-keyframes orbit2 {
+    from { -o-transform: rotate(135deg) translateX(50px)  }
+    to   { -o-transform: rotate(225deg) translateX(50px)  }
+}
+
+@keyframes orbit2 {
+    from { transform: rotate(135deg) translateX(50px)  }
+    to   { transform: rotate(225deg) translateX(50px)  }
+}
+
+/*-----------------------------orbit3-------------------------------*/
+
+@-webkit-keyframes orbit3 {
+    from { -webkit-transform: rotate(225deg) translateX(50px) }
+    to   { -webkit-transform: rotate(315deg) translateX(50px)  }
+}
+
+@-moz-keyframes orbit3 {
+    from { -moz-transform: rotate(225deg) translateX(50px)  }
+    to   { -moz-transform: rotate(315deg) translateX(50px)  }
+}
+
+@-o-keyframes orbit3 {
+    from { -o-transform: rotate(225deg) translateX(50px)  }
+    to   { -o-transform: rotate(315deg) translateX(50px)  }
+}
+
+@keyframes orbit3 {
+    from { transform: rotate(225deg) translateX(50px)  }
+    to   { transform: rotate(315deg) translateX(50px)  }
+}
+
+/*-----------------------------orbit4-------------------------------*/
+
+@-webkit-keyframes orbit4 {
+    from { -webkit-transform: rotate(315deg) translateX(50px) }
+    to   { -webkit-transform: rotate(405deg) translateX(50px)  }
+}
+
+@-moz-keyframes orbit4 {
+    from { -moz-transform: rotate(315deg) translateX(50px)  }
+    to   { -moz-transform: rotate(405deg) translateX(50px)  }
+}
+
+@-o-keyframes orbit4 {
+    from { -o-transform: rotate(315deg) translateX(50px)  }
+    to   { -o-transform: rotate(405deg) translateX(50px)  }
+}
+
+@keyframes orbit4 {
+    from { transform: rotate(315deg) translateX(50px)  }
+    to   { transform: rotate(405deg) translateX(50px)  }
+}
+
+@media (max-width: 600px){
+    .image{
+        grid-column: 1/span 3;
+    }
+
+}
+
+    
+    
