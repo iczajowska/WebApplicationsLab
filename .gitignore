@@ -1,0 +1,7 @@
+lab1/
+.vscode/
+lab2/*
+!lab2/Zadania1*
+!lab2/Zadanie2*
+lab3/*
+!lab3/lab3_js
